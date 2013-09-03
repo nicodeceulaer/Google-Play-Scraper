@@ -34,7 +34,7 @@ class GooglePlayScraper::Parser
     app.id = extract_app_id(app_container)
     app.name = extract_app_name(app_container)
     app.developer = extract_developer(app_container)
-    app.rating    = extract_rating(app_container)
+    # app.rating    = extract_rating(app_container)
     
     app
   end
