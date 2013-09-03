@@ -75,6 +75,6 @@ class GooglePlayScraper::Parser
     rating_style = rating_tag['style']
     # rating_style = "width: 79.10494804382324%;"
 
-    rating_style[/[:]\b+(\d+\.\d+)%;/].to_f
+    rating_style[/\b+(\d+\.\d+)%;/].to_f
   end
 end
