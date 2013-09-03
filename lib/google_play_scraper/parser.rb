@@ -34,7 +34,7 @@ class GooglePlayScraper::Parser
     app.id = extract_app_id(app_container)
     app.name = extract_app_name(app_container)
     app.developer = extract_developer(app_container)
-    # app.rating    = extract_rating(app_container)
+    app.rating    = extract_rating(app_container)
     
     app
   end
@@ -71,7 +71,7 @@ class GooglePlayScraper::Parser
   end
 
   def extract_rating(app_container)
-    rating_tag = app_container.css('.reason-set .stars-container .star-rating-non-editable-container .current-rating')
+    rating_tag = app_container.css('.reason-set .stars-container .star-rating-non-editable-container .current-rating').first
     rating_style = rating_tag['style']
     puts "rating_style = #{rating_style}"
 
