@@ -34,6 +34,7 @@ class GooglePlayScraper::Parser
     app.id = extract_app_id(app_container)
     app.name = extract_app_name(app_container)
     app.developer = extract_developer(app_container)
+    app.rating    = extract_rating(app_container)
     
     app
   end
@@ -67,5 +68,12 @@ class GooglePlayScraper::Parser
   def extract_logo_url_small(app_container)
     img_tag = app_container.css(LOGO_CSS_SELECTOR).first
     img_tag['data-cover-small']
+  end
+
+  def extract_rating(app_container)
+    rating_tag = app_container.css('.reason-set .stars-container .star-rating-non-editable-container .current-rating')
+    rating_style = rating_tag['style']
+
+    puts "rating_style = #{rating_style}"
   end
 end
